@@ -1,0 +1,84 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.icon-header {
+  background-image: url(../img/photos/sprite.jpg);
+  background-position: -4000px 0px;
+  width: 4000px;
+  height: 2698px;
+}
+.icon-photo1 {
+  background-image: url(../img/photos/sprite.jpg);
+  background-position: -8000px -1661px;
+  width: 2000px;
+  height: 1333px;
+}
+.icon-photo10 {
+  background-image: url(../img/photos/sprite.jpg);
+  background-position: -8000px 0px;
+  width: 2500px;
+  height: 1661px;
+}
+.icon-photo2 {
+  background-image: url(../img/photos/sprite.jpg);
+  background-position: -2500px -5099px;
+  width: 3000px;
+  height: 2000px;
+}
+.icon-photo3 {
+  background-image: url(../img/photos/sprite.jpg);
+  background-position: 0px -7599px;
+  width: 2592px;
+  height: 1565px;
+}
+.icon-photo4 {
+  background-image: url(../img/photos/sprite.jpg);
+  background-position: 0px 0px;
+  width: 4000px;
+  height: 2698px;
+}
+.icon-photo5 {
+  background-image: url(../img/photos/sprite.jpg);
+  background-position: -5500px -5099px;
+  width: 2500px;
+  height: 1667px;
+}
+.icon-photo6 {
+  background-image: url(../img/photos/sprite.jpg);
+  background-position: -3202px -2698px;
+  width: 3000px;
+  height: 2003px;
+}
+.icon-photo7 {
+  background-image: url(../img/photos/sprite.jpg);
+  background-position: 0px -2698px;
+  width: 3202px;
+  height: 2401px;
+}
+.icon-photo8 {
+  background-image: url(../img/photos/sprite.jpg);
+  background-position: 0px -5099px;
+  width: 2500px;
+  height: 2500px;
+}
+.icon-photo9 {
+  background-image: url(../img/photos/sprite.jpg);
+  background-position: -8000px -2994px;
+  width: 2000px;
+  height: 1333px;
+}
