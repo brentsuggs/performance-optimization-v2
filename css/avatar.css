@@ -16,69 +16,81 @@ To change `display` (e.g. `display: inline-block;`), we suggest using a common C
 // HTML
 <i class="icon icon-home"></i>
 */
-.icon-header {
-  background-image: url(../img/photos/sprite.jpg);
-  background-position: -4000px 0px;
-  width: 4000px;
-  height: 2698px;
+.icon-avatar1-sm {
+  background-image: url(../img/avatars/sprites.png);
+  background-position: -208px -489px;
+  width: 50px;
+  height: 50px;
 }
-.icon-photo1 {
-  background-image: url(../img/photos/sprite.jpg);
-  background-position: -8000px -1661px;
-  width: 2000px;
-  height: 1333px;
+.icon-avatar1 {
+  background-image: url(../img/avatars/sprites.png);
+  background-position: -541px -154px;
+  width: 75px;
+  height: 75px;
 }
-.icon-photo10 {
-  background-image: url(../img/photos/sprite.jpg);
-  background-position: -8000px 0px;
-  width: 2500px;
-  height: 1661px;
+.icon-avatar2-sm {
+  background-image: url(../img/avatars/sprites.png);
+  background-position: -104px -489px;
+  width: 50px;
+  height: 50px;
 }
-.icon-photo2 {
-  background-image: url(../img/photos/sprite.jpg);
-  background-position: -2500px -5099px;
-  width: 3000px;
-  height: 2000px;
+.icon-avatar2 {
+  background-image: url(../img/avatars/sprites.png);
+  background-position: -541px 0px;
+  width: 75px;
+  height: 75px;
 }
-.icon-photo3 {
-  background-image: url(../img/photos/sprite.jpg);
-  background-position: 0px -7599px;
-  width: 2592px;
-  height: 1565px;
+.icon-avatar3-sm {
+  background-image: url(../img/avatars/sprites.png);
+  background-position: 0px -489px;
+  width: 50px;
+  height: 50px;
 }
-.icon-photo4 {
-  background-image: url(../img/photos/sprite.jpg);
+.icon-avatar3 {
+  background-image: url(../img/avatars/sprites.png);
+  background-position: -541px -77px;
+  width: 75px;
+  height: 75px;
+}
+.icon-avatar5-sm {
+  background-image: url(../img/avatars/sprites.png);
+  background-position: -260px -489px;
+  width: 50px;
+  height: 50px;
+}
+.icon-avatar5 {
+  background-image: url(../img/avatars/sprites.png);
+  background-position: -541px -231px;
+  width: 75px;
+  height: 75px;
+}
+.icon-avatar6-sm {
+  background-image: url(../img/avatars/sprites.png);
+  background-position: -52px -489px;
+  width: 50px;
+  height: 50px;
+}
+.icon-avatar6 {
+  background-image: url(../img/avatars/sprites.png);
+  background-position: -541px -308px;
+  width: 75px;
+  height: 75px;
+}
+.icon-avatar7-sm {
+  background-image: url(../img/avatars/sprites.png);
+  background-position: -156px -489px;
+  width: 50px;
+  height: 50px;
+}
+.icon-avatar7 {
+  background-image: url(../img/avatars/sprites.png);
+  background-position: -541px -385px;
+  width: 75px;
+  height: 75px;
+}
+.icon-sprites {
+  background-image: url(../img/avatars/sprites.png);
   background-position: 0px 0px;
-  width: 4000px;
-  height: 2698px;
-}
-.icon-photo5 {
-  background-image: url(../img/photos/sprite.jpg);
-  background-position: -5500px -5099px;
-  width: 2500px;
-  height: 1667px;
-}
-.icon-photo6 {
-  background-image: url(../img/photos/sprite.jpg);
-  background-position: -3202px -2698px;
-  width: 3000px;
-  height: 2003px;
-}
-.icon-photo7 {
-  background-image: url(../img/photos/sprite.jpg);
-  background-position: 0px -2698px;
-  width: 3202px;
-  height: 2401px;
-}
-.icon-photo8 {
-  background-image: url(../img/photos/sprite.jpg);
-  background-position: 0px -5099px;
-  width: 2500px;
-  height: 2500px;
-}
-.icon-photo9 {
-  background-image: url(../img/photos/sprite.jpg);
-  background-position: -8000px -2994px;
-  width: 2000px;
-  height: 1333px;
+  width: 539px;
+  height: 487px;
 }

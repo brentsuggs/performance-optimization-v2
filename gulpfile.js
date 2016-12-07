@@ -11,28 +11,28 @@ var gulp = require('gulp'),
      image = require('gulp-image'),
 spriteSmith = require('gulp.spritesmith'); 
 
-gulp.task('compressImgs', function() {
-    return gulp.src(["./img/**/*.jpg"], { base: "./img"})
+gulp.task('compressImgs', ['spriteAvatars'], function() {
+    return gulp.src(["./img/**/*.jpg", "./img/avatars/sprites.png"], { base: "./img"})
     .pipe(image())
     .pipe(gulp.dest("./dist/img"))
 });
 
-gulp.task('spriteAvatars', ['compressImgs'], function() {
+gulp.task('spriteAvatars',  function() {
     var spriteData = 
-        gulp.src('./dist/img/avatars/*.jpg') // source path of the sprite images
+        gulp.src('./img/avatars/*.png') // source path of the sprite images
             .pipe(spriteSmith({
-                imgPath: '../img/avatars/sprite.jpg',
-                imgName: 'sprite.jpg',
+                imgPath: '../img/avatars/sprites.png',
+                imgName: 'sprites.png',
                 cssName: 'avatar.css',
                 padding: 2
             }));
 
-    spriteData.img.pipe(gulp.dest('./dist/img/avatars')); // output path for the sprite
+    spriteData.img.pipe(gulp.dest('./img/avatars')); // output path for the sprite
    return spriteData.css.pipe(gulp.dest('./css')); // output path for the CSS
 });
 
 
-gulp.task('concatCSS', ['spriteAvatars'], function() {
+gulp.task('concatCSS', ['compressImgs'], function() {
    return gulp.src([
        'css/normalize.css',
        'css/foundation.css',
