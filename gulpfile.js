@@ -11,15 +11,20 @@ var gulp = require('gulp'),
      image = require('gulp-image'),
 spriteSmith = require('gulp.spritesmith'); 
 
+var options = {
+    src: './src/',
+    dist: './dist/'
+};
+
 gulp.task('compressImgs', ['spriteAvatars'], function() {
-    return gulp.src(["./img/**/*.jpg", "./img/avatars/sprites.png"], { base: "./img"})
+    return gulp.src([options.src + "img/**/*.jpg", options.src + "img/avatars/sprites.png"], { base: options.src + "img"})
     .pipe(image())
-    .pipe(gulp.dest("./dist/img"))
+    .pipe(gulp.dest(options.dist + "img"))
 });
 
 gulp.task('spriteAvatars',  function() {
     var spriteData = 
-        gulp.src('./img/avatars/*.png') // source path of the sprite images
+        gulp.src(options.src + 'img/avatars/*.png') // source path of the sprite images
             .pipe(spriteSmith({
                 imgPath: '../img/avatars/sprites.png',
                 imgName: 'sprites.png',
@@ -27,68 +32,77 @@ gulp.task('spriteAvatars',  function() {
                 padding: 2
             }));
 
-    spriteData.img.pipe(gulp.dest('./img/avatars')); // output path for the sprite
-   return spriteData.css.pipe(gulp.dest('./css')); // output path for the CSS
+    spriteData.img.pipe(gulp.dest(options.dist + 'img/avatars')); // output path for the sprite
+   return spriteData.css.pipe(gulp.dest(options.src + 'css')); // output path for the CSS
 });
 
 
-gulp.task('concatCSS', ['compressImgs'], function() {
+gulp.task('concatCSS', ['clean','compressImgs'], function() {
+    del(options.src + 'css/styles*.css' );
    return gulp.src([
-       'css/normalize.css',
-       'css/foundation.css',
-       'css/basics.css', 
-       'css/menu.css',
-       'css/hero.css',
-       'css/photo-grid.css',
-       'css/modals.css',
-       'css/footer.css',
-       'css/avatar.css'])
+       options.src + 'css/normalize.css',
+       options.src + 'css/foundation.css',
+       options.src + 'css/basics.css', 
+       options.src + 'css/menu.css',
+       options.src + 'css/hero.css',
+       options.src + 'css/photo-grid.css',
+       options.src + 'css/modals.css',
+       options.src + 'css/footer.css',
+       options.src + 'css/avatar.css'])
         .pipe(concat("styles.css"))
-        .pipe(gulp.dest("css"));
+        .pipe(gulp.dest(options.src + "css"));
 });
 
 gulp.task('minifyCSS', ['concatCSS'], function() {
-    return gulp.src('css/styles.css')
+    return gulp.src(options.src + 'css/styles.css')
      .pipe(cleanCSS())
      .pipe(rename("styles.min.css"))
-     .pipe(gulp.dest("css"));
+     .pipe(gulp.dest(options.src + "css"));
 });
 
 gulp.task('concatScripts',  function() {
+    del(options.src + 'js/scripts*.js*' );
    return gulp.src([
-        'js/jquery.js',
-        'js/fastclick.js',
-        'js/foundation.js',
-        'js/foundation.equalizer.js',
-        'js/foundation.reveal.js'])
+        options.src + 'js/jquery.js',
+        options.src + 'js/fastclick.js',
+        options.src + 'js/foundation.js',
+        options.src + 'js/foundation.equalizer.js',
+        options.src + 'js/foundation.reveal.js'
+   ])
     .pipe(maps.init())
     .pipe(concat("scripts.js"))
-    .pipe(maps.write("./"))
-    .pipe(gulp.dest("js"));
+    .pipe(maps.write(options.src))
+    .pipe(gulp.dest(options.src + "js"));
 }); 
 
 gulp.task('minifyScripts', ['concatScripts'], function() {
-   return gulp.src("js/scripts.js")
+   return gulp.src(options.src + "js/scripts.js")
     .pipe(uglify())
     .pipe(rename("scripts.min.js"))
-    .pipe(gulp.dest("js"));
+    .pipe(gulp.dest(options.src + "js"));
 });
 
 
 gulp.task('tidyHTML', function() {
-   gulp.src('index.html') 
+   gulp.src(options.src + 'index.html') 
     .pipe(htmltidy())
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest(options.dist));
 });
 
+//move files to optimization testing folder
+//gulp.task('move', function() {
+//   gulp.src('./dist/**/*', { base: './dist'} ) 
+//   .pipe(gulp.dest('C:/Users/bsuggs/Documents/GitHub/optimization-testing-master/public/'));
+//});
+
 gulp.task('clean', function() {
-    del(['dist', 'js/scripts*.js*', 'imgs/**']);
+    del([options.dist]);
 })
 
 gulp.task('build',['tidyHTML', 'minifyCSS', 'minifyScripts'], function() {
-    gulp.src(["css/styles.css", "css/styles.min.css", "js/scripts.js",
-            "js/scripts.min.js"], { base: './'} )
-        .pipe(gulp.dest('dist'));
+    gulp.src([options.src + "css/styles.css", options.src + "css/styles.min.css", options.src + "js/scripts.js",
+            options.src + "js/scripts.min.js"], { base: options.src} )
+        .pipe(gulp.dest(options.dist));
     
 });
 
